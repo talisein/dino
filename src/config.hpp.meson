@@ -1,0 +1,17 @@
+#mesondefine CR_YEAR
+
+#mesondefine PACKAGE
+
+#mesondefine PACKAGE_BUGREPORT
+
+#mesondefine PACKAGE_NAME
+
+#mesondefine PACKAGE_STRING
+
+#mesondefine PACKAGE_TARNAME
+
+#mesondefine PACKAGE_URL
+
+#mesondefine PACKAGE_VERSION
+
+#mesondefine VERSION
