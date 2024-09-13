@@ -501,7 +501,7 @@ namespace Dino {
 
   pair<int, int> Song::frame2bt(unsigned long frame) {
     int32_t beat = 0, tick = 0;
-    return make_pair<int, int>(beat, tick);
+    return make_pair(beat, tick);
   }
 
 
