@@ -78,16 +78,14 @@ bool Ruler::on_expose_event(GdkEventExpose* event) {
   
   Pango::FontDescription fd("helvetica bold 9");
   get_pango_context()->set_font_description(fd);
-  char tmp[10];
-  
+
   for (int i = 0; i <= m_length; ++i) {
     win->draw_line(m_gc, i * m_div_size, m_height - 4, 
 		   i * m_div_size, m_height);
     if (i % m_interval == 0 && i != 0) {
       Glib::RefPtr<Pango::Layout> l = 
 	Pango::Layout::create(get_pango_context());
-      sprintf(tmp, "%d", i);
-      l->set_text(tmp);
+      l->set_text(std::to_string(i));
       Pango::Rectangle rect = l->get_pixel_logical_extents();
       win->draw_layout(m_gc, i * m_div_size - rect.get_width() / 2, 
 		       (m_height - 4 - rect.get_height()) / 2, l);
