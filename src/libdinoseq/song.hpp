@@ -131,7 +131,7 @@ namespace Dino {
     TempoIterator tempo_begin() const;
     TempoIterator tempo_end() const;
     TempoIterator tempo_find(int beat) const;
-    const size_t get_number_of_tracks() const;
+    size_t get_number_of_tracks() const;
     int get_length() const;
     
     // non-const accessors

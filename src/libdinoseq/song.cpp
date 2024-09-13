@@ -223,7 +223,8 @@ namespace Dino {
   }
   
 
-  const size_t Song::get_number_of_tracks() const {
+
+  size_t Song::get_number_of_tracks() const {
     return m_tracks->size();
   }
 
@@ -358,6 +359,7 @@ namespace Dino {
   
   
   double Song::get_current_tempo(int beat, int tick) {
+    (void)tick;
     return double(m_tempo_map.get_changes(beat)->bpm);
   }
 
@@ -501,6 +503,7 @@ namespace Dino {
 
   pair<int, int> Song::frame2bt(unsigned long frame) {
     int32_t beat = 0, tick = 0;
+    (void)frame;
     return make_pair(beat, tick);
   }
 
