@@ -157,7 +157,7 @@ bool TrackWidget::on_button_press_event(GdkEventButton* event) {
     for ( ; iter != m_track->pat_end(); ++iter) {
       snprintf(tmp, 128, "%03d %s", iter->get_id(), iter->get_name().c_str());
       Menu_Helpers::MenuElem
-	elem(tmp, bind(bind(mem_fun(*this, &TrackWidget::slot_insert_pattern), 
+          elem(tmp, sigc::bind(sigc::bind(mem_fun(*this, &TrackWidget::slot_insert_pattern),
 			    beat), iter->get_id()));
       m_pattern_menu.items().push_back(elem);
     }
