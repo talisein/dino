@@ -423,8 +423,9 @@ bool NoteEditor::on_motion_notify_event(GdkEventMotion* event) {
       return true;
     else if (step >= int(m_pat->get_length() * m_pat->get_steps()))
       step = m_pat->get_length() * m_pat->get_steps() - 1;
-    Pattern::NoteIterator iterator = 
-      m_pat->find_note(m_added_note.first, m_added_note.second);
+    // unused?
+    //Pattern::NoteIterator iterator =
+    //  m_pat->find_note(m_added_note.first, m_added_note.second);
     unsigned new_size = step - m_added_note.first + 1;
     PatternSelection::Iterator iter;
     for (iter = m_selection.begin(); iter != m_selection.end(); ++iter)
@@ -684,12 +685,13 @@ void NoteEditor::draw_outline(const Dino::NoteCollection& notes,
   for (iter = notes.begin(); iter != notes.end(); ++iter) {
     if (step + iter->start >= m_pat->get_length() * m_pat->get_steps())
       continue;
-    int length = iter->length;
-    if (step + iter->start + iter->length >= 
-	m_pat->get_length() * m_pat->get_steps())
-      length = m_pat->get_length() * m_pat->get_steps() - step - iter->start;
-    win->draw_rectangle(m_gc, false, (step + iter->start) * m_col_width, 
-			(2 * m_max_note - iter->key - 2 - key) * m_row_height, 
+// FIXME: length is unused after being set. Probably should be passed to draw_rectangle
+//    int length = iter->length;
+//    if (step + iter->start + iter->length >=
+//	m_pat->get_length() * m_pat->get_steps())
+//      length = m_pat->get_length() * m_pat->get_steps() - step - iter->start;
+    win->draw_rectangle(m_gc, false, (step + iter->start) * m_col_width,
+			(2 * m_max_note - iter->key - 2 - key) * m_row_height,
 			iter->length * m_col_width, m_row_height);
   }
 }
