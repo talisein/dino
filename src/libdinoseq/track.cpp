@@ -353,7 +353,6 @@ namespace Dino {
     assert(beat >= 0);
     assert(beat < int(m_sequence->size()));
     assert(m_patterns.find(pattern) != m_patterns.end());
-    assert(length >= 0);
     assert(length <= m_patterns.find(pattern)->second->get_length());
     
     // if length is 0, get it from the pattern
