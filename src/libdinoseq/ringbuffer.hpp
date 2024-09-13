@@ -64,7 +64,7 @@ namespace Dino {
   }
 
 
-  template <class T> Ringbuffer<T>::~Ringbuffer<T>() {
+  template <class T> Ringbuffer<T>::~Ringbuffer() {
     dbg1<<"Destroying ringbuffer for "<<demangle(typeid(T).name())<<endl;
     delete [] m_data;
   }
